@@ -34,9 +34,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <!--
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.css">
         <title>QR - Jan K. Pluta</title>
         <style>
             body, html {
@@ -45,14 +43,13 @@
                 margin: 0; 
                 padding: 0;
                 font-family: "Source Code Pro";
-                font-variant: small-caps;
             }
             .first-row {
                 position: absolute; 
                 left: 0; 
                 right: 0; 
                 top: 0;
-                height: 28px; 
+                height: 32px; 
                 padding-left: 10px;
                 padding-right: 10px;
                 padding-top: 5px;
@@ -65,7 +62,7 @@
                 left: 0; 
                 right: 0; 
                 bottom: 0; 
-                height: 52px; 
+                height: 64px; 
                 padding-left: 10px;
                 padding-right: 10px;
                 padding-top: 5px;
@@ -88,18 +85,18 @@ Proszę zeskanować kod QR
                 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         <script>
         function qrScan() {
-            document.getElementById("info").innerHTML = "Skanuję...";
+            $("#info").text("Skanuję...");
             QRScanner.scan(qrScanCallback);
             QRScanner.show();
         }
         function qrScanCallback(err, contents) {
             if(err) {
-                document.getElementById("info").innerHTML = err._message;
+                $("#info").text(err._message);
             } else {
-                document.getElementById("info").innerHTML = contents;
+                $("#info").text(contents);
             }
         }
         function okClick() {
@@ -107,7 +104,11 @@ Proszę zeskanować kod QR
         }
         function cancelClick() {
         }
-        // qrScan();
+        $(document).ready(function() {
+            setTimeout(function() {
+                qrScan();
+            }, 500);
+        });
         </script>
     </body>
 </html>
