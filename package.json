@@ -7,7 +7,7 @@
     "scripts": {
         "browser": "cordova run browser",
         "android": "cordova build android",
-        "android-linux": "cordova build android && sudo cp ./platforms/android/build/outputs/apk/android-debug.apk /var/www/html/download/"
+        "android-linux": "cordova build android && sudo cp ./platforms/android/build/outputs/apk/android-debug.apk /var/www/html/download/jkpluta-qr-cordova"
     },
     "author": {
         "name": "Jan K. Pluta",
@@ -17,11 +17,14 @@
     "dependencies": {
         "cordova-android": "^6.2.3",
         "cordova-browser": "^4.1.0",
+        "cordova-plugin-compat": "^1.2.0",
+        "cordova-plugin-qrscanner": "^2.5.0",
         "cordova-plugin-whitelist": "^1.3.3"
     },
     "cordova": {
         "plugins": {
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-qrscanner": {}
         },
         "platforms": [
             "android",
